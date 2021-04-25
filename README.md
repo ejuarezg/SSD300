@@ -1,12 +1,13 @@
 # SSD300
 Single Shot MultiBox Detector implemented with TensorFlow
 ## Dependencies ##
-python3.6.1
+* python3.6.1 or greater
 * numpy
 * skimage
 * TensorFlow
 * matplotlib
 * OpenCV
+* tqdm
 
 ## Usage ##
 1. Import required modules
