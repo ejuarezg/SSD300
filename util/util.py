@@ -7,7 +7,8 @@ author: arabian9ts
 """
 
 import numpy as np
-from scipy.misc import imread, imresize
+import PIL
+from imageio import imread
 
 def preprocess(path):
     """
@@ -18,7 +19,7 @@ def preprocess(path):
     """
     img = imread(path)
     h, w, c = img.shape
-    img = imresize(img, (300, 300))
+    img = np.array(PIL.Image.fromarray(img).resize((300, 300)))
     img = img[:, :, ::-1].astype('float32')
     img /= 255.
     return img, w, h, c
