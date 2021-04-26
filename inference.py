@@ -15,7 +15,7 @@ def inference(image_name):
         return Exception('not specified image name to be drawed')
 
     fontType = cv2.FONT_HERSHEY_SIMPLEX
-    img, w, h, _, = preprocess('./voc2007/'+image_name)
+    img, w, h, _, = preprocess(image_name)
     pred_confs, pred_locs = ssd.infer(images=[img])
     locs, labels = ssd.ssd.detect_objects(pred_confs, pred_locs)
     img = deprocess(img, w, h)
