@@ -35,5 +35,5 @@ def deprocess(x, w, h):
     # x = x[:, :, ::-1]
     x *= 255.
     x = np.clip(x, 0, 255).astype('uint8')
-    x = imresize(x, (h, w))
+    x = np.array(PIL.Image.fromarray(x).resize((h, w)))
     return x
