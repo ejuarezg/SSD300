@@ -29,14 +29,22 @@ BATCH_SIZE = 10
 EPOCH = 200
 EPOCH_LOSSES = []
 SHUFFLED_INDECES = []
+USE_MANGA109 = True
 # ============================== END ============================== #
 
 if __name__ == '__main__':
     sess = tf.Session()
     buff = []
 
+    if USE_MANGA109:
+        pickle_file = 'Manga109.pkl'
+        folder_name = 'Manga109/'
+    else:
+        pickle_file = 'VOC2007.pkl'
+        folder_name = 'voc2007/'
+
     # load pickle data set annotation
-    with open('VOC2007.pkl', 'rb') as f:
+    with open(pickle_file, 'rb') as f:
         data = pickle.load(f)
         keys = sorted(data.keys())
         BATCH = int(len(keys) / BATCH_SIZE)
@@ -55,7 +63,7 @@ if __name__ == '__main__':
         for idx in indices:
             # make images mini batch
 
-            img, _, _, _, = preprocess('voc2007/'+keys[idx])
+            img, _, _, _, = preprocess(folder_name + keys[idx])
 
             actual_data.append(data[keys[idx]])
             mini_batch.append(img)
