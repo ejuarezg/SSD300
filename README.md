@@ -54,6 +54,13 @@ $ ./setup.sh
 $ python train.py
 ```
 
+## Using Manga109 dataset
+
+- Create the environment file by installing the packages in `./environment/environment_snapshot.yml`.
+- Unzip the Manga109 file. Rename folder to `Manga109` and place in the root of this repo. The dataset can be downloaded from the [Manga109 website](http://www.manga109.org/en/download.html) by requesting access.
+- Ensure that the variable `USE_MANGA109` is set to true in `trainer.py` and run the script.
+- After training, test an image using the command `python inference.py Manga109/images/ARMS/002.jpg`
+
 ## Present Circumstances ##
 I'm checking and testing SSD model, so this model may not be complete.
 
